@@ -3,187 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiruthika | Digital Marketing Executive</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>For My Love - Paapu</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text-main: #334155;
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff9a9e 0%, #fecfef 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
-
-        /* --- Navigation --- */
-        nav {
-            padding: 1.2rem 8%; position: fixed; width: 100%; top: 0;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);
-            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none; }
-        .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 2rem; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* --- Hero Section (Fixed Image Alignment) --- */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; padding: 100px 8% 40px;
-            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
-        }
-        .hero-text { flex: 1; padding-right: 40px; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero-text span { color: var(--primary); }
-
-        .hero-img-container {
-            flex: 1; display: flex; justify-content: center; align-items: center;
-        }
-        .img-frame {
-            width: 100%; max-width: 500px; height: 500px; /* Larger area for full visibility */
-            background: white; padding: 10px; border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); overflow: hidden;
-        }
-        .img-frame img {
-            width: 100%; height: 100%; 
-            object-fit: contain; /* Ensures the WHOLE image is visible */
-            border-radius: 8px;
+        .container {
+            text-align: center;
+            z-index: 10;
         }
 
-        /* --- Experience Cards --- */
-        section { padding: 80px 8%; }
-        .section-title { margin-bottom: 3rem; border-left: 5px solid var(--primary); padding-left: 20px; }
-        
-        .card {
-            background: white; padding: 2rem; border-radius: 12px;
-            margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: 0.3s; border: 1px solid #e2e8f0;
+        h1 {
+            color: white;
+            font-size: 5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { color: var(--primary); margin-bottom: 5px; }
-        .card-meta { font-weight: 600; color: #64748b; margin-bottom: 15px; display: block; }
-        .card ul { padding-left: 20px; color: var(--text-main); }
-        .card li { margin-bottom: 8px; }
 
-        /* --- Skills Grid --- */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .skill-item { background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #e2e8f0; }
-        .skill-item h4 { margin-bottom: 10px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
 
-        /* --- Footer --- */
-        footer { background: var(--dark); color: white; padding: 60px 8%; text-align: center; }
-        .contact-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; }
-        .contact-links a { color: white; font-size: 1.8rem; transition: 0.3s; }
-        .contact-links a:hover { color: var(--primary); transform: scale(1.1); }
+        /* Love Bubble Style */
+        .heart {
+            position: absolute;
+            bottom: -10%;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            user-select: none;
+            animation: float Up linear forwards;
+        }
 
-        @media (max-width: 968px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
-            .hero-text { padding-right: 0; margin-top: 40px; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .img-frame { height: 400px; }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">KIRUTHIKA D.</a>
-        <div class="nav-links">
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-        </div>
-    </nav>
+    <div class="container">
+        <h1>I Love You, Paapu</h1>
+        <p style="color: white; font-size: 1.5rem;">You are my forever.</p>
+    </div>
 
-    <section id="home" class="hero">
-        <div class="hero-text" data-aos="fade-right">
-            <h1>Digital Marketing <span>Executive.</span></h1>
-            <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
-                Motivated Digital Marketing trainee with experience supporting SaaS marketing initiatives through content drafting, outreach, and analytics reporting.
-            </p>
-            <div style="display: flex; gap: 15px; justify-content: inherit;">
-                <a href="mailto:kiruthikaharivmsk@gmail.com" style="background: var(--primary); color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600;">Contact Me</a>
-            </div>
-        </div>
-        <div class="hero-img-container" data-aos="zoom-in">
-            <div class="img-frame">
-                <img src="image_0.png" alt="Kiruthika Devasenathipathi Profile">
-            </div>
-        </div>
-    </section>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // Randomize position and appearance
+            heart.innerText = "❤️"; 
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // 2s to 5s
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            
+            document.body.appendChild(heart);
 
-    <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="card" data-aos="fade-up">
-            <span class="card-meta">Oct 2025 - Present</span>
-            <h3>Digital Marketing Trainee</h3>
-            <p><strong>Simplita.ai Technology Pvt Ltd.</strong> - Villupuram</p>
-            <ul>
-                <li>Promoted SaaS solutions across LinkedIn, Reddit, Discord, Slack, Quora, and Email.</li>
-                <li>Created platform-specific posts and outreach messages using Canva.</li>
-                <li>Assisted with analytics and reporting using Google Analytics.</li>
-                <li>Managed lead collection and community engagement activities.</li>
-            </ul>
-        </div>
+            // Remove heart from DOM after animation finishes
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
 
-        <div class="card" data-aos="fade-up">
-            <span class="card-meta">Sep 2025 - Oct 2025</span>
-            <h3>Trainee of Advanced Data Analytics</h3>
-            <p><strong>Curious Crew Advisory Services LLP</strong> - Villupuram</p>
-            <ul>
-                <li>Completed intensive training in Advanced Power BI and Data Visualization.</li>
-                <li>Conducted teaching sessions on data analytics for government college students.</li>
-                <li>Applied Power BI and Excel to create interactive dashboards and statistical analysis.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills" style="background: #f8fafc;">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <h4><i class="fas fa-bullhorn"></i> Marketing</h4>
-                <p>Social Media Marketing (LinkedIn, Reddit, Discord), Email & WhatsApp Outreach, Lead Generation, SEO, and Meta/Google Ads.</p>
-            </div>
-            <div class="skill-item">
-                <h4><i class="fas fa-chart-line"></i> Analytics</h4>
-                <p>Power BI Dashboards, Google Analytics, SQL, and MS Excel for detailed reporting.</p>
-            </div>
-            <div class="skill-item">
-                <h4><i class="fas fa-pencil-alt"></i> Content</h4>
-                <p>Platform-Specific Copywriting, Content Research, and Canva for Basic Creatives.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2 class="section-title">Education & Certifications</h2>
-        <div class="card" style="border-left-color: #10b981;">
-            <h3>Bachelor of Computer Application (BCA)</h3>
-            <p>Arignar Anna Government Arts and Science College, Villupuram</p>
-            <p><strong>GPA: 8.2</strong> | 2020 - 2023</p>
-        </div>
-        <div class="card" style="border-left-color: #10b981;">
-            <h3>Higher Secondary Education</h3>
-            <p>Gandhi Memorial Higher Secondary School</p>
-            <p><strong>Result: 75%</strong> | 2019 - 2020</p>
-        </div>
-    </section>
-
-    <footer>
-        <h2>Connect With Me</h2>
-        <p>Email: kiruthikaharivmsk@gmail.com | Phone: 6379857751</p>
-        <div class="contact-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:kiruthikaharivmsk@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/916379857751"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 30px;">&copy; 2026 Kiruthika Devasenathipathi | All Rights Reserved</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+        // Create a new heart every 300ms
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
