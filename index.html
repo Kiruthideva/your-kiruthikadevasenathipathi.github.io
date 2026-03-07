@@ -3,227 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiruthika | Digital Marketing & AI Portfolio</title>
+    <title>Kiruthika | Digital Marketing Executive</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
-            --accent: #00d2ff;
             --dark: #0f172a;
             --light: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.8);
+            --text-main: #334155;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
+        body { background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
 
         /* --- Navigation --- */
         nav {
-            padding: 1.5rem 10%; position: fixed; width: 100%; top: 0;
+            padding: 1.2rem 8%; position: fixed; width: 100%; top: 0;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none;}
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); text-decoration: none; }
+        .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 2rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (Fixed Image Alignment) --- */
         .hero {
-            min-height: 100vh; display: flex; align-items: center; padding: 120px 10% 60px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(0, 210, 255, 0.05) 100%);
+            min-height: 100vh; display: flex; align-items: center; padding: 100px 8% 40px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
         }
-        .hero-text { flex: 1.2; z-index: 2; padding-right: 40px;}
-        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; color: var(--dark); }
+        .hero-text { flex: 1; padding-right: 40px; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
         .hero-text span { color: var(--primary); }
-        
-        /* Image Container - Fixed to display image_1.png */
+
         .hero-img-container {
-            flex: 1; display: flex; justify-content: center; position: relative;
+            flex: 1; display: flex; justify-content: center; align-items: center;
         }
         .img-frame {
-            width: 380px; height: 430px; background: white; padding: 12px;
-            border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            transform: rotate(2deg); transition: 0.5s;
+            width: 100%; max-width: 500px; height: 500px; /* Larger area for full visibility */
+            background: white; padding: 10px; border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); overflow: hidden;
         }
-        .img-frame:hover { transform: rotate(0deg) scale(1.03); }
         .img-frame img {
-            width: 100%; height: 100%; object-fit: cover; border-radius: 12px;
+            width: 100%; height: 100%; 
+            object-fit: contain; /* Ensures the WHOLE image is visible */
+            border-radius: 8px;
         }
-
-        /* --- Section Styling --- */
-        section { padding: 100px 10%; }
-        .title { text-align: center; margin-bottom: 4rem; }
-        .title h2 { font-size: 2.8rem; color: var(--dark); margin-bottom: 10px;}
-        .line { width: 60px; height: 5px; background: var(--primary); margin: 0 auto; border-radius: 3px;}
-
-        /* --- AI Tools Section --- */
-        .ai-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px;
-        }
-        .ai-card {
-            background: white; padding: 2rem; border-radius: 15px; text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04); transition: 0.3s;
-        }
-        .ai-card:hover { background: var(--primary); color: white; transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
-        .ai-card i { font-size: 2.5rem; margin-bottom: 1.5rem; }
 
         /* --- Experience Cards --- */
+        section { padding: 80px 8%; }
+        .section-title { margin-bottom: 3rem; border-left: 5px solid var(--primary); padding-left: 20px; }
+        
         .card {
-            background: white; padding: 3rem; border-radius: 20px;
-            margin-bottom: 35px; border-left: 6px solid var(--primary);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition: 0.3s;
+            background: white; padding: 2rem; border-radius: 12px;
+            margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s; border: 1px solid #e2e8f0;
         }
-        .card:hover { transform: translateX(12px); box-shadow: 0 15px 50px rgba(0,0,0,0.06);}
-        .card-date { color: var(--primary); font-weight: bold; margin-bottom: 5px; display: block;}
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card h3 { color: var(--primary); margin-bottom: 5px; }
+        .card-meta { font-weight: 600; color: #64748b; margin-bottom: 15px; display: block; }
+        .card ul { padding-left: 20px; color: var(--text-main); }
+        .card li { margin-bottom: 8px; }
 
-        /* --- Education Section --- */
-        .edu-flex {
-            display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 20px;
-        }
-        .edu-item {
-            background: white; padding: 2.5rem; border-radius: 20px; width: 380px;
-            text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.3s;
-        }
-        .edu-item:hover { transform: translateY(-5px); }
-        .grade {
-            display: inline-block; padding: 6px 18px; background: rgba(37, 99, 235, 0.1);
-            color: var(--primary); border-radius: 25px; font-weight: 800; margin-top: 15px; font-size: 1.1rem;
-        }
+        /* --- Skills Grid --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .skill-item { background: #fff; padding: 1.5rem; border-radius: 10px; border: 1px solid #e2e8f0; }
+        .skill-item h4 { margin-bottom: 10px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
 
         /* --- Footer --- */
-        footer { background: var(--dark); color: white; padding: 80px 10%; text-align: center; }
-        .footer-logo { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 20px;}
-        .socials { display: flex; justify-content: center; gap: 30px; margin: 30px 0 40px;}
-        .socials a { color: white; font-size: 2.2rem; transition: 0.3s; text-decoration: none;}
-        .socials a:hover { color: var(--accent); transform: scale(1.15) translateY(-5px);}
+        footer { background: var(--dark); color: white; padding: 60px 8%; text-align: center; }
+        .contact-links { margin: 25px 0; display: flex; justify-content: center; gap: 30px; }
+        .contact-links a { color: white; font-size: 1.8rem; transition: 0.3s; }
+        .contact-links a:hover { color: var(--primary); transform: scale(1.1); }
 
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
-            .hero-text { padding-right: 0; margin-top: 50px;}
-            .hero-text h1 { font-size: 3rem; }
-            .img-frame { width: 320px; height: 380px; transform: rotate(0deg);}
+        @media (max-width: 968px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
+            .hero-text { padding-right: 0; margin-top: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .img-frame { height: 400px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home" class="logo">KIRUTHIKA.D</a>
+        <a href="#" class="logo">KIRUTHIKA D.</a>
         <div class="nav-links">
             <a href="#experience">Experience</a>
-            <a href="#ai-tools">AI Arsenal</a>
+            <a href="#skills">Skills</a>
             <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-text" data-aos="fade-right">
-            <h1>Digital Marketing <span>Executive & AI Enthusiast.</span></h1>
-            <p style="font-size: 1.3rem; margin: 25px 0; color: var(--secondary);">Simplifying SaaS growth through content, data insights, and advanced AI application.</p>
-            <div style="display: flex; gap: 20px; margin-top: 40px;">
-                <a href="mailto:kiruthikaharivmsk@gmail.com" style="background: var(--primary); color: white; padding: 15px 35px; text-decoration: none; border-radius: 35px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);">Connect via Email</a>
-                <a href="https://wa.me/916379857751" target="_blank" style="border: 2px solid var(--primary); color: var(--primary); padding: 15px 35px; text-decoration: none; border-radius: 35px; font-weight: bold;">WhatsApp Me</a>
+            <h1>Digital Marketing <span>Executive.</span></h1>
+            <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
+                Motivated Digital Marketing trainee with experience supporting SaaS marketing initiatives through content drafting, outreach, and analytics reporting.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: inherit;">
+                <a href="mailto:kiruthikaharivmsk@gmail.com" style="background: var(--primary); color: white; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600;">Contact Me</a>
             </div>
         </div>
-        <div class="hero-img-container" data-aos="fade-left" data-aos-delay="200">
+        <div class="hero-img-container" data-aos="zoom-in">
             <div class="img-frame">
-                <img src="image_1.png" alt="Kiruthika Devasenathipathi - Digital Marketing Professional">
+                <img src="image_0.png" alt="Kiruthika Devasenathipathi Profile">
             </div>
         </div>
     </section>
 
     <section id="experience">
-        <div class="title" data-aos="fade-up">
-            <h2>Professional Journey</h2>
-            <div class="line"></div>
-        </div>
+        <h2 class="section-title">Professional Experience</h2>
         
         <div class="card" data-aos="fade-up">
-            <span class="card-date">Oct 2025 - Present</span>
+            <span class="card-meta">Oct 2025 - Present</span>
             <h3>Digital Marketing Trainee</h3>
-            <h4 style="color: var(--secondary); margin-bottom: 15px;">Simplita.ai</h4>
-            <p>Managing SaaS promotion across channels like LinkedIn, Reddit, Discord, and Slack. Crafting platform-specific copywriting, managing outreach, and generating data insights using Google Analytics.</p>
+            <p><strong>Simplita.ai Technology Pvt Ltd.</strong> - Villupuram</p>
+            <ul>
+                <li>Promoted SaaS solutions across LinkedIn, Reddit, Discord, Slack, Quora, and Email.</li>
+                <li>Created platform-specific posts and outreach messages using Canva.</li>
+                <li>Assisted with analytics and reporting using Google Analytics.</li>
+                <li>Managed lead collection and community engagement activities.</li>
+            </ul>
         </div>
 
-        <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <span class="card-date">Sep 2025 - Oct 2025</span>
-            <h3>Data Analytics Trainee</h3>
-            <h4 style="color: var(--secondary); margin-bottom: 15px;">Curious Crew Advisory</h4>
-            <p>Specialized in Power BI dashboards, advanced statistical analysis, and data visualization. Conducted technical training sessions for students.</p>
+        <div class="card" data-aos="fade-up">
+            <span class="card-meta">Sep 2025 - Oct 2025</span>
+            <h3>Trainee of Advanced Data Analytics</h3>
+            <p><strong>Curious Crew Advisory Services LLP</strong> - Villupuram</p>
+            <ul>
+                <li>Completed intensive training in Advanced Power BI and Data Visualization.</li>
+                <li>Conducted teaching sessions on data analytics for government college students.</li>
+                <li>Applied Power BI and Excel to create interactive dashboards and statistical analysis.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="ai-tools" style="background: #f1f5f9;">
-        <div class="title" data-aos="fade-up">
-            <h2>AI Marketing Arsenal</h2>
-            <p style="color: var(--secondary);">Leveraging modern technology for strategy and creative content.</p>
-            <div class="line"></div>
-        </div>
-        <div class="ai-grid">
-            <div class="ai-card" data-aos="flip-left">
-                <i class="fas fa-brain"></i>
-                <h3>ChatGPT / Claude</h3>
-                <p>Generative Copywriting</p>
+    <section id="skills" style="background: #f8fafc;">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h4><i class="fas fa-bullhorn"></i> Marketing</h4>
+                <p>Social Media Marketing (LinkedIn, Reddit, Discord), Email & WhatsApp Outreach, Lead Generation, SEO, and Meta/Google Ads.</p>
             </div>
-            <div class="ai-card" data-aos="flip-left" data-aos-delay="100">
-                <i class="fas fa-palette"></i>
-                <h3>Midjourney / DALL-E</h3>
-                <p>Creative Visualization</p>
+            <div class="skill-item">
+                <h4><i class="fas fa-chart-line"></i> Analytics</h4>
+                <p>Power BI Dashboards, Google Analytics, SQL, and MS Excel for detailed reporting.</p>
             </div>
-            <div class="ai-card" data-aos="flip-left" data-aos-delay="200">
-                <i class="fas fa-search"></i>
-                <h3>SEO/AEO Tools</h3>
-                <p>Engine & Answer Optimization</p>
-            </div>
-            <div class="ai-card" data-aos="flip-left" data-aos-delay="300">
-                <i class="fas fa-bolt"></i>
-                <h3>Canva AI</h3>
-                <p>Dynamic Brand Design</p>
+            <div class="skill-item">
+                <h4><i class="fas fa-pencil-alt"></i> Content</h4>
+                <p>Platform-Specific Copywriting, Content Research, and Canva for Basic Creatives.</p>
             </div>
         </div>
     </section>
 
     <section id="education">
-        <div class="title" data-aos="fade-up">
-            <h2>Education</h2>
-            <div class="line"></div>
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="card" style="border-left-color: #10b981;">
+            <h3>Bachelor of Computer Application (BCA)</h3>
+            <p>Arignar Anna Government Arts and Science College, Villupuram</p>
+            <p><strong>GPA: 8.2</strong> | 2020 - 2023</p>
         </div>
-        <div class="edu-flex">
-            <div class="edu-item" data-aos="fade-right">
-                <h3>BCA</h3>
-                <p style="margin: 5px 0 10px; color: var(--secondary);">Arignar Anna Government Arts and Science College</p>
-                <p>2020 - 2023</p>
-                <div class="grade">8.2 GPA</div>
-            </div>
-            <div class="edu-item" data-aos="fade-left" data-aos-delay="200">
-                <h3>Higher Secondary</h3>
-                <p style="margin: 5px 0 10px; color: var(--secondary);">Gandhi Memorial Higher Secondary School</p>
-                <p>2019 - 2020</p>
-                <div class="grade">75% Result</div>
-            </div>
+        <div class="card" style="border-left-color: #10b981;">
+            <h3>Higher Secondary Education</h3>
+            <p>Gandhi Memorial Higher Secondary School</p>
+            <p><strong>Result: 75%</strong> | 2019 - 2020</p>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-logo">KIRUTHIKA DEVASENATHIPATHI</div>
-        <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem;">Data-Driven Marketing | SaaS Growth | AI Application</p>
-        
-        <div class="socials" data-aos="zoom-in">
-            <a href="https://www.linkedin.com" target="_blank" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:kiruthikaharivmsk@gmail.com" title="Email Kiruthika"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/916379857751" target="_blank" title="Contact via WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <footer>
+        <h2>Connect With Me</h2>
+        <p>Email: kiruthikaharivmsk@gmail.com | Phone: 6379857751</p>
+        <div class="contact-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:kiruthikaharivmsk@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/916379857751"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p style="margin-top: 30px; opacity: 0.6; font-size: 0.9rem;">&copy; 2026 Kiruthika D. All rights reserved. Based in India.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 30px;">&copy; 2026 Kiruthika Devasenathipathi | All Rights Reserved</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ 
-            duration: 1000, 
-            once: true,
-            offset: 120 // Start animations slightly before they enter the viewport
-        });
-    </script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
