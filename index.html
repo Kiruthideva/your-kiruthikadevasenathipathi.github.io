@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiruthika Devasenathipathi | Portfolio</title>
+    <style>
+        /* CSS Styling */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #2563eb;
+            --bg-light: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .project-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+        }
+        
+        .timeline-item .date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>KD.</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Kiruthika Devasenathipathi</h1>
+        <h2>Data-Driven Digital Marketer | Power BI & Analytics | Community Growth</h2>
+        <a href="mailto:kiruthikaharivmsk@gmail.com" class="btn">Get In Touch</a>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">The "Data + Marketing" Advantage</h2>
+        <div class="about-content">
+            <p>I specialize in bridging the gap between creative marketing outreach and technical data reporting. With a Bachelor of Computer Application (BCA) foundation, I don't just execute campaigns—I analyze them.</p>
+            <br>
+            <p>From managing cross-platform promotions on LinkedIn, Reddit, and Discord, to building interactive performance dashboards in Power BI and Google Analytics, I use data to prove marketing ROI. I am a highly adaptable professional, eager to rapidly master new tools to meet strategic goals, and I seamlessly integrate into collaborative team environments.</p>
+            
+            <div class="skills-container" style="margin-top: 2rem;">
+                <span class="skill-tag">Power BI & SQL</span>
+                <span class="skill-tag">Google Analytics (GA4)</span>
+                <span class="skill-tag">Social Media & Community Outreach</span>
+                <span class="skill-tag">Lead Generation</span>
+                <span class="skill-tag">Canva Design</span>
+                <span class="skill-tag">Meta Ads Basics</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <h3>Marketing Data Dashboard</h3>
+                <p><strong>Tools:</strong> Power BI, Excel</p>
+                <br>
+                <p>Designed an interactive dashboard to visualize campaign performance, tracking traffic sources, engagement metrics, and lead conversions to prove platform ROI.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Cross-Platform Lead Generation</h3>
+                <p><strong>Tools:</strong> Reddit, Discord, LinkedIn, Canva</p>
+                <br>
+                <p>Executed targeted, organic outreach campaigns across niche tech communities. Developed platform-specific messaging to drive user engagement without relying on traditional ad spend.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>EdTech Analytics Training</h3>
+                <p><strong>Impact:</strong> Skill Development & Presentation</p>
+                <br>
+                <p>Conducted intensive teaching sessions on advanced data analytics for government college students. Translated complex technical data concepts into easy-to-understand modules.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <h3>Digital Marketing Trainee</h3>
+                <span class="date">Simplita.ai Technology Pvt Ltd | Oct 2025 - Present | Villupuram</span>
+                <p>• Promoted SaaS software across LinkedIn, Reddit, Discord, Slack, and Quora.</p>
+                <p>• Supported daily marketing activities including content drafting and lead generation.</p>
+                <p>• Assisted with analytics and reporting using Google Analytics and platform insights.</p>
+                <p>• Created platform-specific creatives and campaigns using Canva.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Trainee of Advanced Data Analytics</h3>
+                <span class="date">Curious Crew Advisory Services | Sep 2025 - Oct 2025 | Villupuram</span>
+                <p>• Completed intensive training in Advanced Power BI, data visualization, and analytics.</p>
+                <p>• Conducted teaching sessions on data analytics for government college students.</p>
+                <p>• Mentored students in project execution and skill development.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Office Administrator</h3>
+                <span class="date">CYS MULTI Media College | Jan 2024 - Jan 2025 | Villupuram</span>
+                <p>• Managed data records and documentation, ensuring accuracy and accessibility.</p>
+                <p>• Supported faculty with event coordination and data handling tasks.</p>
+            </div>
+
+        </div>
+    </section>
