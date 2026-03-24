@@ -1,708 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kiruthika Devasenathipathi — Digital Marketing Executive</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #050a14;
-    --surface: #0d1a2e;
-    --accent1: #00e5ff;
-    --accent2: #ff6b35;
-    --accent3: #7c3aed;
-    --text: #e8f4f8;
-    --muted: #6b8fa8;
-    --card: rgba(13,26,46,0.85);
-    --glow: 0 0 40px rgba(0,229,255,0.18);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'DM Sans',sans-serif;
-    overflow-x:hidden;
-    cursor:none;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiruthika | Digital Marketing & Growth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
 
-  /* CUSTOM CURSOR */
-  .cursor{position:fixed;width:14px;height:14px;background:var(--accent1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s,opacity .2s;mix-blend-mode:screen;}
-  .cursor-ring{position:fixed;width:38px;height:38px;border:1.5px solid var(--accent1);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s ease;opacity:.5;}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-  /* NOISE OVERLAY */
-  body::before{
-    content:'';position:fixed;inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events:none;z-index:0;opacity:.6;
-  }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-  /* ANIMATED BACKGROUND GRID */
-  .bg-grid{
-    position:fixed;inset:0;z-index:0;
-    background-image:linear-gradient(rgba(0,229,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.04) 1px,transparent 1px);
-    background-size:60px 60px;
-    animation:gridMove 25s linear infinite;
-  }
-  @keyframes gridMove{0%{background-position:0 0}100%{background-position:60px 60px}}
+        /* Header / Hero */
+        header { text-align: center; padding: 60px 0; }
+        h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent); }
+        .tagline { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 30px; }
 
-  /* FLOATING ORBS */
-  .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:orbFloat 12s ease-in-out infinite;}
-  .orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,255,.12),transparent);top:-100px;left:-100px;animation-delay:0s;}
-  .orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(255,107,53,.1),transparent);bottom:0;right:-100px;animation-delay:-5s;}
-  .orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(124,58,237,.12),transparent);top:50%;left:40%;animation-delay:-9s;}
-  @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.08)}}
+        /* Story Section */
+        .story-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            margin-bottom: 50px;
+        }
 
-  /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 60px;
-    background:rgba(5,10,20,.7);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(0,229,255,.07);
-  }
-  .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:2px;color:var(--accent1);}
-  .nav-links{display:flex;gap:36px;}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .3s;}
-  .nav-links a:hover{color:var(--accent1);}
+        /* Portfolio Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-  /* SECTIONS */
-  section{position:relative;z-index:1;}
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
 
-  /* HERO */
-  .hero{
-    min-height:100vh;display:flex;align-items:center;
-    padding:120px 60px 80px;
-    position:relative;overflow:hidden;
-  }
-  .hero-content{max-width:750px;}
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:10px;
-    background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.2);
-    padding:8px 20px;border-radius:100px;font-size:.8rem;
-    letter-spacing:2px;text-transform:uppercase;color:var(--accent1);
-    margin-bottom:32px;animation:fadeUp .8s ease both;
-  }
-  .hero-badge .dot{width:7px;height:7px;background:var(--accent1);border-radius:50%;animation:pulse 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--accent); margin-top: 0; }
+        .card i { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
 
-  h1{
-    font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,6rem);
-    font-weight:800;line-height:1.0;
-    animation:fadeUp .8s .15s ease both;
-  }
-  h1 .line1{display:block;color:var(--text);}
-  h1 .line2{display:block;color:var(--accent1);-webkit-text-stroke:0px;text-shadow:0 0 60px rgba(0,229,255,.5);}
+        /* Skills Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag {
+            background: #334155;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
 
-  .hero-sub{
-    margin-top:24px;font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:520px;
-    animation:fadeUp .8s .3s ease both;
-  }
-  .hero-cta{
-    margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;
-    animation:fadeUp .8s .45s ease both;
-  }
-  .btn{
-    padding:14px 32px;border-radius:4px;font-family:'Syne',sans-serif;
-    font-weight:700;font-size:.9rem;letter-spacing:1px;text-decoration:none;
-    display:inline-flex;align-items:center;gap:10px;transition:all .3s;cursor:none;
-  }
-  .btn-primary{background:var(--accent1);color:#050a14;}
-  .btn-primary:hover{background:#fff;box-shadow:0 0 30px rgba(0,229,255,.5);transform:translateY(-2px);}
-  .btn-outline{border:1.5px solid rgba(0,229,255,.3);color:var(--accent1);}
-  .btn-outline:hover{border-color:var(--accent1);background:rgba(0,229,255,.07);transform:translateY(-2px);}
-
-  .hero-stats{
-    margin-top:64px;display:flex;gap:48px;flex-wrap:wrap;
-    animation:fadeUp .8s .6s ease both;
-  }
-  .stat-item{}
-  .stat-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent1);}
-  .stat-label{font-size:.8rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
-
-  /* HERO RIGHT VISUAL */
-  .hero-visual{
-    position:absolute;right:60px;top:50%;transform:translateY(-50%);
-    width:420px;height:420px;
-    animation:fadeUp .8s .2s ease both;
-  }
-  .hero-ring{
-    position:absolute;inset:0;border-radius:50%;
-    border:1px solid rgba(0,229,255,.15);
-    animation:spin 20s linear infinite;
-  }
-  .hero-ring2{
-    position:absolute;inset:30px;border-radius:50%;
-    border:1px dashed rgba(0,229,255,.1);
-    animation:spin 14s linear infinite reverse;
-  }
-  .hero-ring3{
-    position:absolute;inset:70px;border-radius:50%;
-    border:1px solid rgba(255,107,53,.12);
-    animation:spin 10s linear infinite;
-  }
-  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-
-  .center-icon{
-    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:100px;height:100px;
-    background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(124,58,237,.15));
-    border-radius:50%;border:1px solid rgba(0,229,255,.3);
-    display:flex;align-items:center;justify-content:center;
-    font-size:2.5rem;
-    box-shadow:0 0 60px rgba(0,229,255,.2),inset 0 0 30px rgba(0,229,255,.05);
-    animation:centerPulse 3s ease-in-out infinite;
-  }
-  @keyframes centerPulse{0%,100%{box-shadow:0 0 40px rgba(0,229,255,.2)}50%{box-shadow:0 0 80px rgba(0,229,255,.4)}}
-
-  .orbit-icon{
-    position:absolute;width:44px;height:44px;border-radius:50%;
-    background:var(--surface);border:1px solid rgba(0,229,255,.2);
-    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
-    top:50%;left:50%;
-    box-shadow:var(--glow);
-  }
-
-  /* MARQUEE */
-  .marquee-wrap{
-    padding:20px 0;overflow:hidden;border-top:1px solid rgba(0,229,255,.07);
-    border-bottom:1px solid rgba(0,229,255,.07);
-    background:rgba(0,229,255,.02);position:relative;z-index:1;
-  }
-  .marquee-track{
-    display:flex;gap:48px;white-space:nowrap;
-    animation:marquee 22s linear infinite;
-    width:max-content;
-  }
-  .marquee-item{
-    display:flex;align-items:center;gap:12px;
-    font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
-  }
-  .marquee-item span{color:var(--accent1);}
-  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-  /* SECTION COMMON */
-  .section-header{margin-bottom:60px;}
-  .section-label{
-    font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
-    color:var(--accent1);margin-bottom:12px;font-weight:600;
-  }
-  .section-title{
-    font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);
-    font-weight:800;line-height:1.1;
-  }
-  .section-title .highlight{color:var(--accent1);}
-
-  /* SKILLS */
-  .skills-section{padding:100px 60px;}
-  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-  .skill-card{
-    background:var(--card);border:1px solid rgba(0,229,255,.08);
-    border-radius:12px;padding:32px;
-    backdrop-filter:blur(20px);
-    transition:all .3s;position:relative;overflow:hidden;
-  }
-  .skill-card::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(0,229,255,.04),transparent);
-    opacity:0;transition:opacity .3s;
-  }
-  .skill-card:hover{border-color:rgba(0,229,255,.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 30px rgba(0,229,255,.08);}
-  .skill-card:hover::before{opacity:1;}
-  .skill-icon{
-    width:52px;height:52px;border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.6rem;margin-bottom:20px;
-  }
-  .skill-card h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:16px;}
-  .skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
-  .tag{
-    padding:5px 12px;background:rgba(0,229,255,.06);
-    border:1px solid rgba(0,229,255,.12);border-radius:4px;
-    font-size:.75rem;color:var(--muted);letter-spacing:.5px;
-  }
-
-  /* EXPERIENCE */
-  .exp-section{padding:100px 60px;background:rgba(0,229,255,.01);}
-  .exp-timeline{position:relative;padding-left:32px;}
-  .exp-timeline::before{
-    content:'';position:absolute;left:0;top:0;bottom:0;
-    width:1px;background:linear-gradient(to bottom,var(--accent1),rgba(0,229,255,.1),transparent);
-  }
-  .exp-item{
-    position:relative;margin-bottom:56px;
-    animation:fadeUp .6s ease both;
-  }
-  .exp-dot{
-    position:absolute;left:-39px;top:6px;
-    width:14px;height:14px;border-radius:50%;
-    background:var(--accent1);box-shadow:0 0 20px rgba(0,229,255,.5);
-  }
-  .exp-meta{
-    display:flex;align-items:center;gap:16px;flex-wrap:wrap;
-    margin-bottom:12px;
-  }
-  .exp-date{
-    font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;
-    color:var(--accent2);font-weight:600;
-  }
-  .exp-company{
-    font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;
-    margin-bottom:4px;
-  }
-  .exp-role{
-    font-size:.9rem;color:var(--accent1);font-weight:500;margin-bottom:16px;
-  }
-  .exp-points{list-style:none;}
-  .exp-points li{
-    padding:8px 0;color:var(--muted);font-size:.92rem;line-height:1.65;
-    border-bottom:1px solid rgba(255,255,255,.04);
-    display:flex;align-items:flex-start;gap:12px;
-  }
-  .exp-points li::before{content:'→';color:var(--accent1);flex-shrink:0;margin-top:1px;}
-
-  /* PLATFORMS */
-  .platforms-section{padding:80px 60px;}
-  .platforms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:20px;}
-  .platform-card{
-    background:var(--card);border:1px solid rgba(0,229,255,.08);
-    border-radius:12px;padding:28px 20px;
-    text-align:center;transition:all .3s;
-    display:flex;flex-direction:column;align-items:center;gap:12px;
-  }
-  .platform-card:hover{border-color:rgba(0,229,255,.3);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 20px rgba(0,229,255,.1);}
-  .platform-emoji{font-size:2rem;}
-  .platform-name{font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
-
-  /* EDUCATION */
-  .edu-section{padding:100px 60px;}
-  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
-  .edu-card{
-    background:var(--card);border:1px solid rgba(0,229,255,.08);
-    border-radius:12px;padding:32px;position:relative;overflow:hidden;
-  }
-  .edu-card::after{
-    content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,var(--accent1),var(--accent3),transparent);
-  }
-  .edu-year{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
-  .edu-degree{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:6px;}
-  .edu-school{font-size:.88rem;color:var(--muted);}
-  .edu-grade{
-    margin-top:16px;display:inline-block;
-    padding:5px 14px;background:rgba(0,229,255,.06);
-    border:1px solid rgba(0,229,255,.15);border-radius:4px;
-    font-size:.8rem;color:var(--accent1);font-weight:600;
-  }
-
-  /* CONTACT */
-  .contact-section{
-    padding:100px 60px;text-align:center;
-    background:radial-gradient(ellipse at center,rgba(0,229,255,.05) 0%,transparent 70%);
-  }
-  .contact-email{
-    font-family:'Syne',sans-serif;font-size:clamp(1.5rem,4vw,3rem);
-    font-weight:800;color:var(--text);text-decoration:none;
-    border-bottom:2px solid rgba(0,229,255,.3);padding-bottom:4px;
-    transition:color .3s,border-color .3s;display:inline-block;margin:32px 0;
-  }
-  .contact-email:hover{color:var(--accent1);border-color:var(--accent1);}
-  .contact-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:16px;}
-  .contact-link{
-    padding:12px 28px;background:rgba(0,229,255,.06);
-    border:1px solid rgba(0,229,255,.15);border-radius:4px;
-    color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:1px;
-    transition:all .3s;display:flex;align-items:center;gap:10px;
-  }
-  .contact-link:hover{border-color:var(--accent1);color:var(--accent1);background:rgba(0,229,255,.1);}
-
-  /* FOOTER */
-  footer{
-    padding:30px 60px;text-align:center;
-    border-top:1px solid rgba(0,229,255,.07);
-    font-size:.8rem;color:var(--muted);letter-spacing:1px;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-  .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
-  .fade-in.visible{opacity:1;transform:translateY(0);}
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar{width:4px;}
-  ::-webkit-scrollbar-track{background:var(--bg);}
-  ::-webkit-scrollbar-thumb{background:rgba(0,229,255,.3);border-radius:2px;}
-
-  /* DATA STREAM ANIMATION */
-  .data-stream{
-    position:absolute;right:0;top:0;bottom:0;width:200px;
-    overflow:hidden;opacity:.06;pointer-events:none;
-  }
-  .stream-col{
-    position:absolute;top:-100%;font-size:.7rem;color:var(--accent1);
-    font-family:monospace;line-height:1.6;letter-spacing:2px;
-    animation:streamDown 8s linear infinite;
-  }
-  @keyframes streamDown{from{transform:translateY(-100%)}to{transform:translateY(200%)}}
-
-  @media(max-width:900px){
-    nav{padding:16px 24px;}
-    .hero{padding:100px 24px 60px;flex-direction:column;}
-    .hero-visual{position:relative;right:auto;top:auto;transform:none;width:300px;height:300px;margin:40px auto 0;}
-    .skills-section,.exp-section,.platforms-section,.edu-section,.contact-section{padding:70px 24px;}
-    .hero-stats{gap:32px;}
-  }
-</style>
+        footer { text-align: center; margin-top: 80px; padding: 40px; border-top: 1px solid #334155; }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="bg-grid"></div>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<div class="container">
+    <header>
+        <h1>KIRUTHIKA D.</h1>
+        <p class="tagline">Digital Marketing Trainee & Community Growth Architect </p>
+        <a href="mailto:kiruthikaharivmsk@gmail.com" class="btn">Let's Collaborate</a>
+    </header>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">KD</div>
-  <div class="nav-links">
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <section class="story-box">
+        <h2>My Storytelling Approach</h2>
+        <p>
+            I don’t just post content; I build ecosystems[cite: 13, 16]. My journey started with a fascination for 
+            how data drives human behavior[cite: 24, 31]. Today, I specialize in turning <b>"Non-Salesy" 
+            storytelling</b> into high-growth communities on Reddit, Discord, and Slack[cite: 13, 43]. 
+            Whether it’s converting Expo leads via LinkedIn or scraping high-intent data on Apollo.io, 
+            I focus on the human connection behind the metric[cite: 16, 40].
+        </p>
+    </section>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Available for Opportunities
+    <h2 style="text-align: center; margin-bottom: 40px;">Core Projects & Impact</h2>
+    <div class="grid">
+        <div class="card">
+            <i class="fab fa-discord"></i>
+            <h3>Community Growth</h3>
+            <p>Built and managed official Slack and Discord servers for Simplita.ai[cite: 13]. Onboarded 100+ members through targeted DM outreach and value-sharing[cite: 16].</p>
+            <div class="tags">
+                <span class="tag">Discord</span> <span class="tag">Slack</span> <span class="tag">Reddit</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-filter"></i>
+            <h3>Lead Generation Funnel</h3>
+            <p>Managed the end-to-end funnel: scraping leads with Apollo.io/Hunter.io and executing personalized LinkedIn follow-ups for Expo attendees[cite: 16, 40].</p>
+            <div class="tags">
+                <span class="tag">Apollo.io</span> <span class="tag">LinkedIn</span> <span class="tag">Email Marketing</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Data Analytics</h3>
+            <p>Created interactive Power BI dashboards to track campaign performance and student project progress[cite: 24, 29, 46].</p>
+            <div class="tags">
+                <span class="tag">Power BI</span> <span class="tag">SQL</span> <span class="tag">Google Analytics</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-robot"></i>
+            <h3>AI Content Strategy</h3>
+            <p>Founder of <b>@thedigital.ai.tips</b>. Producing AI-tool reels and carousels using Canva and CapCut to educate digital marketers[cite: 14, 47].</p>
+            <div class="tags">
+                <span class="tag">Canva</span> <span class="tag">CapCut</span> <span class="tag">ChatGPT</span>
+            </div>
+        </div>
     </div>
-    <h1>
-      <span class="line1">Kiruthika</span>
-      <span class="line2">Devasenathipathi</span>
-    </h1>
-    <p class="hero-sub">Digital Marketing Executive crafting data-driven campaigns, building brand presence across platforms, and turning analytics into actionable growth strategies.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">📩 Get In Touch</a>
-      <a href="#experience" class="btn btn-outline">View Work →</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">7+</div>
-        <div class="stat-label">Platforms Managed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Roles & Training</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">8.2</div>
-        <div class="stat-label">BCA GPA</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- HERO VISUAL -->
-  <div class="hero-visual">
-    <div class="hero-ring"></div>
-    <div class="hero-ring2"></div>
-    <div class="hero-ring3"></div>
-    <div class="center-icon">📊</div>
-
-    <!-- Orbit icons positioned around ring -->
-    <div id="orbit-container" style="position:absolute;inset:0;"></div>
-  </div>
-
-  <div class="data-stream">
-    <div class="stream-col" style="left:20%;animation-delay:-2s">CTR<br>ROI<br>SEO<br>CPC<br>KPI<br>CTA<br>SEM<br>SMM<br>PPC<br>UX</div>
-    <div class="stream-col" style="left:60%;animation-delay:-5s">ADS<br>META<br>DATA<br>LEAD<br>RANK<br>REACH<br>CLICK<br>VIEW<br>CONV<br>GEO</div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="marquee-item">📣 Social Media Marketing <span>·</span></div>
-    <div class="marquee-item">📧 Email Marketing <span>·</span></div>
-    <div class="marquee-item">🔍 SEO Optimization <span>·</span></div>
-    <div class="marquee-item">📊 Google Analytics <span>·</span></div>
-    <div class="marquee-item">🎯 Lead Generation <span>·</span></div>
-    <div class="marquee-item">📱 Content Strategy <span>·</span></div>
-    <div class="marquee-item">💡 Power BI Dashboards <span>·</span></div>
-    <div class="marquee-item">🚀 Campaign Execution <span>·</span></div>
-    <div class="marquee-item">📣 Social Media Marketing <span>·</span></div>
-    <div class="marquee-item">📧 Email Marketing <span>·</span></div>
-    <div class="marquee-item">🔍 SEO Optimization <span>·</span></div>
-    <div class="marquee-item">📊 Google Analytics <span>·</span></div>
-    <div class="marquee-item">🎯 Lead Generation <span>·</span></div>
-    <div class="marquee-item">📱 Content Strategy <span>·</span></div>
-    <div class="marquee-item">💡 Power BI Dashboards <span>·</span></div>
-    <div class="marquee-item">🚀 Campaign Execution <span>·</span></div>
-  </div>
+    <footer>
+        <p>Based in India | Proficient in English & Tamil [cite: 4, 60]</p>
+        <p>Connect with me on LinkedIn or via Email [cite: 3, 4]</p>
+    </footer>
 </div>
 
-<!-- PLATFORMS -->
-<section class="platforms-section fade-in" id="platforms">
-  <div class="section-header" style="text-align:center;">
-    <div class="section-label">Channels & Tools</div>
-    <div class="section-title">Platforms I <span class="highlight">Work With</span></div>
-  </div>
-  <div class="platforms-grid">
-    <div class="platform-card"><div class="platform-emoji">💼</div><div class="platform-name">LinkedIn</div></div>
-    <div class="platform-card"><div class="platform-emoji">👽</div><div class="platform-name">Reddit</div></div>
-    <div class="platform-card"><div class="platform-emoji">💬</div><div class="platform-name">Discord</div></div>
-    <div class="platform-card"><div class="platform-emoji">⚡</div><div class="platform-name">Slack</div></div>
-    <div class="platform-card"><div class="platform-emoji">💚</div><div class="platform-name">WhatsApp</div></div>
-    <div class="platform-card"><div class="platform-emoji">❓</div><div class="platform-name">Quora</div></div>
-    <div class="platform-card"><div class="platform-emoji">📧</div><div class="platform-name">Email</div></div>
-    <div class="platform-card"><div class="platform-emoji">📊</div><div class="platform-name">G Analytics</div></div>
-    <div class="platform-card"><div class="platform-emoji">🎨</div><div class="platform-name">Canva</div></div>
-    <div class="platform-card"><div class="platform-emoji">📈</div><div class="platform-name">Power BI</div></div>
-    <div class="platform-card"><div class="platform-emoji">🔵</div><div class="platform-name">Meta Ads</div></div>
-    <div class="platform-card"><div class="platform-emoji">🔍</div><div class="platform-name">Google Ads</div></div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="skills-section fade-in" id="skills">
-  <div class="section-header">
-    <div class="section-label">Capabilities</div>
-    <div class="section-title">Core <span class="highlight">Skills</span></div>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(0,229,255,.08);">📣</div>
-      <h3>Social Media Marketing</h3>
-      <div class="skill-tags">
-        <span class="tag">LinkedIn</span><span class="tag">Reddit</span><span class="tag">Discord</span><span class="tag">Slack</span><span class="tag">Quora</span><span class="tag">Community</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(255,107,53,.08);">✉️</div>
-      <h3>Email & Outreach</h3>
-      <div class="skill-tags">
-        <span class="tag">Email Marketing</span><span class="tag">WhatsApp</span><span class="tag">Lead Gen</span><span class="tag">Nurturing</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(124,58,237,.08);">🎯</div>
-      <h3>Paid Advertising</h3>
-      <div class="skill-tags">
-        <span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">Campaign Setup</span><span class="tag">Monitoring</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(0,229,255,.08);">🔍</div>
-      <h3>SEO</h3>
-      <div class="skill-tags">
-        <span class="tag">Keyword Research</span><span class="tag">On-Page SEO</span><span class="tag">Content Optimization</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(255,107,53,.08);">📊</div>
-      <h3>Analytics & Data</h3>
-      <div class="skill-tags">
-        <span class="tag">Google Analytics</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Dashboards</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon" style="background:rgba(124,58,237,.08);">✍️</div>
-      <h3>Content Creation</h3>
-      <div class="skill-tags">
-        <span class="tag">Canva</span><span class="tag">Copywriting</span><span class="tag">Platform Posts</span><span class="tag">Campaign Messaging</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="exp-section fade-in" id="experience">
-  <div class="section-header">
-    <div class="section-label">Career</div>
-    <div class="section-title">Professional <span class="highlight">Experience</span></div>
-  </div>
-  <div class="exp-timeline">
-
-    <div class="exp-item">
-      <div class="exp-dot"></div>
-      <div class="exp-meta">
-        <span class="exp-date">Oct 2025 – Present</span>
-      </div>
-      <div class="exp-company">Simplita.ai Technology Pvt Ltd.</div>
-      <div class="exp-role">Digital Marketing Trainee · Villupuram</div>
-      <ul class="exp-points">
-        <li>Promoted Simplita.ai across LinkedIn, Reddit, Discord, Slack, Quora, WhatsApp, and email campaigns</li>
-        <li>Created platform-specific posts, outreach messages, and visual creatives using Canva</li>
-        <li>Assisted with analytics and reporting using Google Analytics and platform insights</li>
-        <li>Managed outreach messages, collected leads, and supported community engagement</li>
-        <li>Coordinated with marketing team on content ideas, audience research, and engagement patterns</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 20px rgba(255,107,53,.5);"></div>
-      <div class="exp-meta">
-        <span class="exp-date">Sep 2025 – Oct 2025</span>
-      </div>
-      <div class="exp-company">Curious Crew Advisory Services LLP</div>
-      <div class="exp-role">Trainee – Advanced Data Analytics · Villupuram</div>
-      <ul class="exp-points">
-        <li>Completed intensive training in Advanced Power BI, data visualization, and advanced analytics</li>
-        <li>Conducted teaching sessions on data analytics for government college students</li>
-        <li>Guided students in project work, practical assignments, and exam preparation</li>
-        <li>Applied Power BI and Excel to create dashboards and perform statistical analysis</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot" style="background:var(--accent3);box-shadow:0 0 20px rgba(124,58,237,.5);"></div>
-      <div class="exp-meta">
-        <span class="exp-date">Jan 2025 – May 2025</span>
-      </div>
-      <div class="exp-company">Ants Skill Varsity</div>
-      <div class="exp-role">Trainee – Power BI & Data Analytics · Bangalore (Naan Mudhalvan)</div>
-      <ul class="exp-points">
-        <li>Completed intensive training in Power BI, data visualization, and analytics methodologies</li>
-        <li>Developed and published interactive dashboards for real-world datasets using Power BI</li>
-        <li>Conducted teaching sessions on data analytics for government college students</li>
-        <li>Promoted data-driven decision-making through hands-on tool application</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-dot" style="background:var(--muted);box-shadow:none;"></div>
-      <div class="exp-meta">
-        <span class="exp-date">Jan 2024 – Jan 2025</span>
-      </div>
-      <div class="exp-company">CYS Multi Media College</div>
-      <div class="exp-role">Office Administrator · Villupuram</div>
-      <ul class="exp-points">
-        <li>Managed data records and documentation, ensuring accuracy and accessibility</li>
-        <li>Supported faculty with event coordination and data handling tasks</li>
-        <li>Resolved student and staff queries, enhancing operational efficiency</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="edu-section fade-in" id="education">
-  <div class="section-header">
-    <div class="section-label">Academic Background</div>
-    <div class="section-title">Education & <span class="highlight">Certifications</span></div>
-  </div>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-year">2020 – 2023</div>
-      <div class="edu-degree">Bachelor of Computer Applications</div>
-      <div class="edu-school">Arignar Anna Government Arts and Science College, Villupuram</div>
-      <div class="edu-grade">GPA: 8.2 / 10</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-year">2019 – 2020</div>
-      <div class="edu-degree">Higher Secondary Education</div>
-      <div class="edu-school">Gandhi Memorial Higher Secondary School, Thiruvennai Nallur</div>
-      <div class="edu-grade">Score: 75%</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-year">Ongoing</div>
-      <div class="edu-degree">Languages</div>
-      <div class="edu-school">English (Proficient) · Tamil (Native Speaker)</div>
-      <div class="edu-grade">Bilingual</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section fade-in" id="contact">
-  <div class="section-label">Let's Connect</div>
-  <div class="section-title">Ready to <span class="highlight">Grow Together?</span></div>
-  <a href="mailto:kiruthikaharivmsk@gmail.com" class="contact-email">kiruthikaharivmsk@gmail.com</a>
-  <div class="contact-links">
-    <a href="tel:6379857751" class="contact-link">📞 +91 6379857751</a>
-    <a href="#" class="contact-link">💼 LinkedIn Profile</a>
-    <a href="#" class="contact-link">📍 India</a>
-  </div>
-</section>
-
-<footer>
-  © 2025 Kiruthika Devasenathipathi · Digital Marketing Executive · Built with precision
-</footer>
-
-<script>
-  // CUSTOM CURSOR
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    }, 80);
-  });
-  document.querySelectorAll('a,button').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2.5)'; ring.style.opacity = '0'; });
-    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.5'; });
-  });
-
-  // ORBIT ICONS
-  const icons = ['📣','🎯','📊','🔍','✉️','🚀','📱','💡'];
-  const container = document.getElementById('orbit-container');
-  const cx = 210, cy = 210;
-  icons.forEach((icon, i) => {
-    const angle = (i / icons.length) * Math.PI * 2;
-    const r = 175;
-    const x = cx + r * Math.cos(angle);
-    const y = cy + r * Math.sin(angle);
-    const el = document.createElement('div');
-    el.className = 'orbit-icon';
-    el.textContent = icon;
-    el.style.cssText = `left:${x}px;top:${y}px;margin-left:-22px;margin-top:-22px;animation-delay:${i * -1.5}s;`;
-    container.appendChild(el);
-
-    // Animate around the circle
-    let t = angle;
-    function animate() {
-      t += 0.004;
-      const nx = cx + r * Math.cos(t);
-      const ny = cy + r * Math.sin(t);
-      el.style.left = nx + 'px';
-      el.style.top = ny + 'px';
-      requestAnimationFrame(animate);
-    }
-    animate();
-  });
-
-  // SCROLL FADE-IN
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // COUNT UP ANIMATION
-  document.querySelectorAll('.stat-num').forEach(el => {
-    const target = parseFloat(el.textContent);
-    const isDecimal = el.textContent.includes('.');
-    let start = 0;
-    const step = () => {
-      start += target / 60;
-      if (start >= target) { el.textContent = isDecimal ? target.toFixed(1) : Math.ceil(target) + '+'; return; }
-      el.textContent = isDecimal ? start.toFixed(1) : Math.floor(start) + '+';
-      requestAnimationFrame(step);
-    };
-    setTimeout(step, 600);
-  });
-</script>
 </body>
 </html>
